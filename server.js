@@ -1,6 +1,6 @@
 const http = require('http');
 const fs = require('fs');
-const port = process.argv[2] || 9000;
+const port = 80;
 
 http.createServer(function (req, res) {
 
@@ -12,8 +12,7 @@ http.createServer(function (req, res) {
             res.setHeader('Content-type', 'text/html' || 'text/plain');
             res.end(data);
         }
-
-    })
+    });
 }).listen(parseInt(port));
 
 console.log(`Server listening on port ${port}`);
