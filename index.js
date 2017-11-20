@@ -2,15 +2,18 @@
 require('dotenv');
 const req = require('superagent');
 
-exports.chattyWishList = async (req, res) => {
+exports.chattyWishList = (req, res) => {
   console.log(2, req);
   const data = 'bicycle';
-  const results = await callFindingAPI(data);
-  console.log(1, results);
+  callFindingAPI(data)
+  .then(results => {
+    console.log(1, results);
+
+  });
 };
 
-const callFindingAPI = async keywords => {
-  const searchResults = await req
+function callFindingAPI(keywords) {
+  return req
     .get('https://svcs.ebay.com/services/search/FindingService/v1')
     .send({
       'OPERATION-NAME': 'findItemsByKeywords',
@@ -19,8 +22,11 @@ const callFindingAPI = async keywords => {
       'keywords': keywords,
       'SECURITY-APPNAME': process.env.SECURITY-APPNAME,
       'GLOBAL-ID': 'EBAY-US'
-    });
+    })
+    .then(searchResults => {
+      console.log(searchResults);
+      return searchResults;
 
-  console.log(searchResults);
-  return searchResults;
+    })
+
 };
