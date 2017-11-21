@@ -3,14 +3,23 @@ require('dotenv');
 const req = require('superagent');
 
 exports.chattyWishList = (req, res) => {
-  console.log(2, req);
-  const data = 'arry+poter+phonix';
-  const refinedKeywords = checkKeywords(data);
-  callFindingAPI(data)
-  .then(results => {
-    console.log(1, results);
+  response = "This is a sample response from your webhook!" //Default response from the webhook to show it's working
+  res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
+  res.send(JSON.stringify({ "speech": response, "displayText": response }));
 
-  });
+
+  // console.log(2, req);
+  // const data = 'arry+poter+phonix';
+  // const refinedKeywords = checkKeywords(data)
+  // .then(refined => {
+  //   console.log(3, refined)
+  //   return refined;
+  // });
+  // const foundResults = callFindingAPI(refined)
+  // .then(results => {
+  //   console.log(1, results);
+  //   return results
+  // });
 };
 
 function checkKeywords(keywords) {
