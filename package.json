@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/wbeck32/chatbot#readme",
   "dependencies": {
-    "apiai": "^4.0.3",
     "botui": "^0.3.4",
     "dotenv": "^4.0.0",
     "fs": "0.0.1-security",
