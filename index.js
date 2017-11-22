@@ -16,7 +16,7 @@ exports.chattyWishList = (req, res) => {
     console.log(3, refined)
     return refined;
   });
-  const foundResults = callFindingAPI(refined)
+  const foundResults = callFindingAPI(refinedKeywords)
   .then(results => {
     console.log(1, results);
     return results
@@ -52,7 +52,8 @@ function callFindingAPI(keywords) {
       'SERVICE-VERSION': '1.0.0',
       'RESPONSE-DATA-FORMAT': 'JSON',
       'keywords': keywords,
-      'SECURITY-APPNAME': process.env.SECURITY-APPNAME,
+      'SECURITY-APPNAME': process.env._,
+      'APPNAME': process.env._,
       'GLOBAL-ID': 'EBAY-US'
     })
     .then(searchResults => {
