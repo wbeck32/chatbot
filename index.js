@@ -3,7 +3,7 @@ require('dotenv');
 const req = require('superagent');
 
 exports.chattyWishList = (req, res) => {
-  console.log(11111)
+  console.log(11111, process.env)
   // const response = "This is a sample response from your webhook!" //Default response from the webhook to show it's working
   // res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
   // res.send(JSON.stringify({"sessionId":"0ee56394-3e4d-4dbe-af8e-08b629be9c0b", "speech": response, "displayText": "response", "source" : "response", "data" : {}, "contextOut" : [], "query":"weather", "lang" : "en", "timezone": "America/Los_Angeles" }));
