@@ -45,7 +45,7 @@ const checkKeywords = data => {
     'SERVICE-VERSION': '1.0.0',
     'RESPONSE-DATA-FORMAT': 'JSON',
     keywords: data,
-    'SECURITY-APPNAME': 'WendyBec-chattywi-PRD-551ca6568-8ddbb013',
+    'SECURITY-APPNAME': '',
     'GLOBAL-ID': 'EBAY-US'
   });
 
@@ -65,7 +65,7 @@ const callFindingAPI = keywords => {
     'SERVICE-VERSION': '1.0.0',
     'RESPONSE-DATA-FORMAT': 'JSON',
     keywords: 'bicycle',
-    'SECURITY-APPNAME': 'WendyBec-chattywi-PRD-551ca6568-8ddbb013',
+    'SECURITY-APPNAME': '',
     'GLOBAL-ID': 'EBAY-US'
   });
   return req
