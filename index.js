@@ -14,7 +14,7 @@ exports.chattyWishList = (req, res) => {
   const foundResults = callFindingAPI(refinedKeywords)
   .then(results => {
     console.log(4, results);
-    res.send(results)
+    return results
   });
 };
 
@@ -33,7 +33,7 @@ function checkKeywords(keywords) {
   })
   .then(refinedKeywords => {
     console.log(6, refinedKeywords);
-    res.send(refinedKeywords);
+    return refinedKeywords;
 
   })
 }
@@ -53,7 +53,7 @@ function callFindingAPI(keywords) {
     })
     .then(searchResults => {
       console.log(8, searchResults);
-      res.send(searchResults);
+      return searchResults;
 
     })
 
