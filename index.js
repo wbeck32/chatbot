@@ -4,8 +4,8 @@ const req = require('superagent');
 
 exports.chattyWishList = (req, res) => {
 
-  console.log(2, req.body);
-  const data = 'arry+poter+phonix';
+  console.log(2, req.body.queryResult.parameters.search_item);
+  const data = req.body.queryResult.parameters.search_item;
   const refinedKeywords = checkKeywords(data)
   .then(refined => {
     console.log(3, refined)
