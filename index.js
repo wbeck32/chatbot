@@ -18,9 +18,9 @@ exports.chattyWishList = (req, res) => {
   });
 };
 
-function checkKeywords(keywords) {
+checkKeywords = async((keywords) =>  {
   console.log(5, keywords)
-  return req
+  const refinedKeywords = await req
   .get('https://svcs.ebay.com/services/search/FindingService/v1')
   .send({
     'OPERATION-NAME': 'getSearchKeywordsRecommendation',
@@ -31,30 +31,28 @@ function checkKeywords(keywords) {
     'APPNAME': process.env._,
     'GLOBAL-ID': 'EBAY-US'
   })
-  .then(refinedKeywords => {
-    console.log(6, refinedKeywords);
-    return refinedKeywords;
+  console.log(6, refinedKeywords);
+  return refinedKeywords;
 
-  })
-}
+})
 
-function callFindingAPI(keywords) {
-  console.log(7, keywords)
-  return req
+callFindingAPI = async((refinedKeywords) => {
+  console.log(7, refinedKeywords)
+  const searchResults = await req
     .get('https://svcs.ebay.com/services/search/FindingService/v1')
     .send({
       'OPERATION-NAME': 'findItemsByKeywords',
       'SERVICE-VERSION': '1.0.0',
       'RESPONSE-DATA-FORMAT': 'JSON',
-      'keywords': keywords,
+      'keywords': refinedKeywords,
       'SECURITY-APPNAME': process.env._,
       'APPNAME': process.env._,
       'GLOBAL-ID': 'EBAY-US'
     })
-    .then(searchResults => {
+
       console.log(8, searchResults);
       return searchResults;
 
-    })
 
-};
+
+})
