@@ -2,7 +2,7 @@
 require('dotenv');
 const req = require('superagent');
 
-exports.chattyWishList = async req => {
+const chattyWishList = async req => {
   console.log(2, req.body.queryResult.parameters.search_item);
   const data = req.body.queryResult.parameters.search_item;
   const refinedKeywords = await checkKeywords(data);
@@ -44,3 +44,5 @@ const callFindingAPI = async refinedKeywords => {
   console.log(8, searchResults);
   return searchResults;
 };
+
+module.exports = chattyWishList
