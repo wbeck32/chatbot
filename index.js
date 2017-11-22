@@ -2,14 +2,14 @@
 require('dotenv');
 const req = require('superagent');
 
-const chattyWishList = async req => {
+const chattyWishList = (async (req, res) => {
   console.log(2, req.body.queryResult.parameters.search_item);
   const data = req.body.queryResult.parameters.search_item;
   const refinedKeywords = await checkKeywords(data);
   console.log(3, refinedKeywords);
   const foundResults = await callFindingAPI(refinedKeywords);
   console.log(4, foundResults);
-}
+})
 
 const checkKeywords = async keywords => {
   console.log(5, keywords);
