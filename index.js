@@ -32,6 +32,7 @@ function checkKeywords(keywords) {
     'RESPONSE-DATA-FORMAT': 'JSON',
     'keywords': keywords,
     'SECURITY-APPNAME': process.env.SECURITY-APPNAME,
+    'APPNAME': process.env.APPNAME,
     'GLOBAL-ID': 'EBAY-US'
   })
   .then(refinedKeywords => {
